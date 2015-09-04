@@ -16,3 +16,4 @@ for($j=0;$j<rows;++$j)
   echo 'Year:  '.mysql_result($result,$j,'year').'<br>';
   echo 'ISBN:  '.mysql_result($result,$j,'isbn').'<br><br>';
 }
+?>
