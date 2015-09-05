@@ -38,7 +38,7 @@ Category
 </form>
 _END;
 $query="SELECT * FROM classics";
-$result=mysql_num_rows($query);
+$result=mysql_query($query);
 if(!$result) die("Database access failed:".mysql_error());
 $rows=mysql_num_rows($result);
 for($j=0;$j<$rows;++$j)
