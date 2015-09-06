@@ -6,7 +6,7 @@ mysql_select_db($db_database)
 or die("Unable to select database:".mysql_error());
 if(isset($_POST['delete'])&&isset($_POST['isbn']))
 {
-   $isbn=get_post('isbn');
+   $isbn=$_POST['isbn'];
    $query="DELETE FROM classics where isbn='$isbn'";
    if(!mysql_query($query,$db_server))
    echo "DELETE failed :$query <br>".mysql_error()."<br><br>";
@@ -17,13 +17,13 @@ isset($_POST['category'])&&
 isset($_POST['year'])&&
 isset($_POST['isbn']))
 {
- $author=get_post('author');//$_POST['author'];
- $title=get_post('title');
- $category=get_post('category');
- $year=get_post('year');
- $isbn=get_post('isbn');
+ $author=$_POST['author'];//$_POST['author'];
+ $title=$_POST['title'];
+ $category=$_POST['category'];
+ $year=$_POST['year'];
+ $isbn=$_POST['isbn'];
  $query="INSERT INTO classics VALUES('$author','$title','$category','$year','$isbn')";
-if(!mysql_query($query,$db,server))
+if(!mysql_query($query,$db_server))
 echo "INSERT failed: $query<br>".mysql.error()."<br><br>";
 }
 echo<<<_END
@@ -31,7 +31,8 @@ echo<<<_END
 Author:<input type="text" name="author">
 Title:<input type="text"name="title">
 Category:<input type="text" name="category">
-Year:<input type="text" name="isbn">
+Year:<input type="text" name="year">
+ISBN:<input type="text" name="isbn">
 <input type="submit" value="ADD RECORD">
 </pre>
 Category
